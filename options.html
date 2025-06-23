@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dictionary</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 1em;
+      width: 480px;
+      min-width: 480px;
+      max-width: 480px;
+      height: 600px;
+      min-height: 600px;
+      max-height: 600px;
+      box-sizing: border-box;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+    h1 { font-size: 1.7em; margin-bottom: 0.2em; }
+    h3 { font-size: 1.1em; margin-top: 1.5em; margin-bottom: 0.5em; }
+    .section-title { font-size: 1.2em; font-weight: bold; margin-bottom: 0.2em; }
+    .small-title { font-size: 1em; font-weight: bold; margin-bottom: 0.5em; }
+    input[type="text"] { width: 40%; margin-right: 0.5em; }
+    button { margin-top: 0.5em; }
+    #dictContainer {
+      margin-top: 1em;
+      max-height: 500px;
+      overflow-y: auto;
+      border: 3px solid #ccc;
+      border-radius: 4px;
+      background: #fafafa;
+    }
+    #dictTable {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.97em;
+    }
+    #dictTable th, #dictTable td {
+      padding: 0.3em 0.5em;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+    #dictTable th { background: #f0f0f0; position: sticky; top: 0; padding: 10; }
+    .remove-btn { color: red; cursor: pointer; }
+    #loadingMsg { color: #888; font-style: italic; }
+    #searchInput { width: 60%; margin-bottom: 0.5em; }
+  </style>
+</head>
+<body>
+  <h1>Corretor Branco</h1>
+  <div class="small-title">Adicionar Novos Termos</div>
+  <input type="text" id="typoInput" placeholder="Erro">
+  <input type="text" id="correctionInput" placeholder="Correção"><br>
+  <button id="addBtn">Adicionar</button><br>
+
+  <h3>Palavras Guardadas</h3>
+  <input type="text" id="searchInput" placeholder="Procurar por palavras guardadas..." style="width:60%;margin-bottom:0.5em;">
+  <button id="searchBtn" style="margin-left:0.5em;">Pesquisar</button>
+  <div id="dictContainer">
+    <div id="loadingMsg">A carregar Palavras guardadas...</div>
+    <table id="dictTable" style="display:none">
+      <thead>
+        <tr>
+          <th>Termo Errado</th>
+          <th>Termo Correto</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="dictList"></tbody>
+    </table>
+  </div>
+
+  <button id="exportBtn">Exportar CSV</button>
+  <button id="importBtn">Importar CSV</button>
+  <input type="file" id="importInput" accept=".csv" style="display:none" />
+
+  <a href="area_teste.html" target="_blank">
+    <button id="openTestAreaBtn" style="margin-top: 1em; width: 100%;">Abrir Área de Teste</button>
+  </a>
+
+  <script src="options.js"></script>
+</body>
+</html>
